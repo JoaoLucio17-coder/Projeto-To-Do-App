@@ -1,0 +1,288 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ixtopim - Nova Tarefa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #0f1418;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .jelly-button {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #47a513 0%, #1c5200 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(71, 165, 19, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .jelly-button::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 5%;
+            width: 90%;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+            border-radius: 50% / 100% 100% 0 0;
+            pointer-events: none;
+        }
+
+        .jelly-button:active {
+            transform: scale(0.95);
+        }
+
+        .water-droplet-check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), 1px 1px 2px rgba(255, 255, 255, 0.1);
+        }
+
+        .glossy-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .glossy-input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #8bceff;
+            box-shadow: 0 0 15px rgba(139, 206, 255, 0.3);
+            outline: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .bg-nature-overlay {
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(139, 206, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(124, 221, 76, 0.1) 0%, transparent 40%);
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(2px);
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#7cdd4c",
+                    "on-primary-container": "#004161",
+                    "primary": "#8bceff",
+                    "surface-container-high": "#252b2f",
+                    "on-secondary-container": "#0e3100",
+                    "surface": "#0f1418",
+                    "on-tertiary": "#492900",
+                    "secondary": "#7cdd4c",
+                    "on-tertiary-fixed-variant": "#683d00",
+                    "inverse-on-surface": "#2c3136",
+                    "tertiary-fixed-dim": "#ffb86b",
+                    "surface-bright": "#343a3f",
+                    "surface-container-lowest": "#090f13",
+                    "on-tertiary-container": "#5a3400",
+                    "tertiary-fixed": "#ffdcbc",
+                    "on-primary-fixed": "#001e2f",
+                    "error": "#ffb4ab",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#97fb66",
+                    "background": "#0f1418",
+                    "surface-dim": "#0f1418",
+                    "primary-container": "#00b2ff",
+                    "tertiary-container": "#ef9206",
+                    "on-background": "#dee3e9",
+                    "surface-tint": "#8bceff",
+                    "on-error-container": "#ffdad6",
+                    "secondary-container": "#47a513",
+                    "primary-fixed": "#c9e6ff",
+                    "outline": "#87929c",
+                    "on-secondary": "#113800",
+                    "on-primary": "#00344e",
+                    "inverse-primary": "#006492",
+                    "on-secondary-fixed": "#072100",
+                    "surface-variant": "#30353a",
+                    "surface-container-low": "#171c21",
+                    "on-secondary-fixed-variant": "#1c5200",
+                    "surface-container-highest": "#30353a",
+                    "tertiary": "#ffb86b",
+                    "on-tertiary-fixed": "#2c1700",
+                    "primary-fixed-dim": "#8bceff",
+                    "outline-variant": "#3e4851",
+                    "on-surface-variant": "#bdc8d2",
+                    "on-error": "#690005",
+                    "inverse-surface": "#dee3e9",
+                    "surface-container": "#1b2025",
+                    "on-surface": "#dee3e9",
+                    "on-primary-fixed-variant": "#004b6f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "container-padding": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Quicksand"],
+                    "headline-lg": ["Quicksand"],
+                    "label-sm": ["Quicksand"],
+                    "body-md": ["Quicksand"],
+                    "body-lg": ["Quicksand"]
+            },
+            "fontSize": {
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface min-h-screen relative overflow-y-auto" style="font-family: Quicksand, sans-serif; background: transparent; overflow-x: hidden;"><div class="fixed inset-0 z-[-1]"><img src="https://lh3.googleusercontent.com/aida/ADBb0ujJndJxOHfsJqPoUXTl-oWZmc5Qt0K5Sru7RUBpAjSmRYk94DuSRkQUJT0S-kwv_6Z7k-zIlqIp6yoFEEk9-ljzx4huHGFpU-n9mOqXFjIsH3lLbh7KwBHRRN4YrNhmqVwU-YJwLgVdvANL4LH6NFHDUJAPUg1gheZZTFjADGiaUkFg2UNMtEjsE4Bd7drYxji1at-3o-ee7MkkOZ6CVzuv4ldDUW6u2IbbHHNxT2maJ1osMq2UrrOX9Q" class="w-full h-full object-cover" alt="Frutiger Aero Background"></div>
+
+<!-- Header Section (TopAppBar Influence) -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-gutter h-16 bg-surface/60 dark:bg-surface/60 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/10 transition-all duration-300 active:scale-95">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary tracking-tight">Ixtopim</h1>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-white/30">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuMzXXx5Emm2citpJhrYgJ5bqR0pv08-DILlHYm3lPtNNEYREpPlwjuSnyr5Ybz3IcTm78Yu-lVGUCzYRuEh-ipNn1-ax3LCsaZFqQxv_tcCe1JAOUVP4FwgVDLiX9xF4A1PcGWLKPAnF4heD0HczB1Dxjb6ARi89g0trFMJ7BPJRtQ9SrXh2FFl1Capg-Q7_mWdsd34ye6TSTkjz-BkuOCU6X0jC4zV_QLIflBc2ml40IdvyFrJtknR2bdLAyjblxm0SqOosxb8U">
+</div>
+</div>
+</header>
+<main class="relative z-10 px-margin-mobile pt-8 pb-32 max-w-2xl mx-auto">
+<div class="mb-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Adicionar tarefa</h2>
+<p class="font-body-md text-on-surface-variant/80">Crie uma nova atividade para o seu dia.</p>
+</div>
+<div class="space-y-6">
+<!-- Task Name -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest pl-2">Nome da Tarefa</label>
+<input class="w-full px-6 py-4 rounded-lg glossy-input text-on-surface font-body-lg placeholder:text-on-surface-variant/40" placeholder="O que você precisa fazer?" type="text">
+</div>
+<!-- Description -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest pl-2">Descrição</label>
+<textarea class="w-full px-6 py-4 rounded-lg text-on-surface font-body-md placeholder:text-on-surface-variant/40 bg-white/20 border border-white/20 backdrop-blur-sm" placeholder="Adicione alguns detalhes..." rows="3"></textarea>
+</div>
+<!-- Categories -->
+<div class="space-y-3">
+<label class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest pl-2">Categoria</label>
+<div class="flex flex-wrap gap-4 px-2">
+<button class="w-12 h-12 rounded-full bg-primary-container border-2 border-white shadow-lg shadow-primary/20 hover:scale-110 transition-transform active:scale-90"></button>
+<button class="w-12 h-12 rounded-full bg-secondary-container border-2 border-transparent hover:border-white transition-all active:scale-90"></button>
+<button class="w-12 h-12 rounded-full bg-tertiary-container border-2 border-transparent hover:border-white transition-all active:scale-90"></button>
+<button class="w-12 h-12 rounded-full bg-error-container border-2 border-transparent hover:border-white transition-all active:scale-90"></button>
+<button class="w-12 h-12 rounded-full bg-surface-container-highest border-2 border-transparent hover:border-white flex items-center justify-center transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">add</span>
+</button>
+</div>
+</div>
+<!-- Repetition Settings -->
+<div class="space-y-3">
+<label class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-widest pl-2">Repetir</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm shadow-md border border-white/20 transition-all">Todo dia</button>
+<button class="px-5 py-2 rounded-full glass-panel text-on-surface/80 font-label-sm hover:bg-white/10 transition-all">Segunda a Sexta</button>
+<button class="px-5 py-2 rounded-full glass-panel text-on-surface/80 font-label-sm hover:bg-white/10 transition-all">Personalizado</button>
+</div>
+</div>
+<!-- Alarm & Time Picker -->
+<div class="glass-panel rounded-lg p-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">alarm</span>
+</div>
+<div>
+<h4 class="font-body-lg text-on-surface">Lembrete</h4>
+<p class="font-label-sm text-on-surface-variant">Notificação de alerta</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<input class="w-20 text-center font-headline-md text-primary bg-transparent border-none focus:ring-0 cursor-pointer" type="text" value="00:00">
+<div class="w-12 h-6 bg-surface-container rounded-full relative p-1 cursor-pointer">
+<div class="w-4 h-4 bg-secondary-fixed-dim rounded-full absolute right-1"></div>
+</div>
+</div>
+</div>
+<!-- Image/Wireframe Reference Integration -->
+<div class="mt-12 rounded-xl overflow-hidden glass-panel group">
+
+
+</div>
+<!-- Action Button -->
+<div class="pt-10">
+<button class="jelly-button w-full py-5 rounded-full text-headline-md font-bold text-on-secondary-container flex items-center justify-center gap-3">
+<span class="">Criar Tarefa</span>
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Consistent with Shared Components) -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 flex justify-around items-center px-4 py-2 z-50 bg-surface-container/40 dark:bg-surface-container/40 backdrop-blur-2xl rounded-full border border-white/30 w-[90%] max-w-md shadow-lg shadow-primary-container/20">
+<a class="flex items-center justify-center text-on-surface-variant p-3 hover:scale-110 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex items-center justify-center bg-secondary-container dark:bg-secondary-container text-on-secondary-container dark:text-on-secondary-container rounded-full p-3 shadow-[inset_0_1px_2px_rgba(255,255,255,0.4)] scale-90 transition-transform duration-150 ease-out" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant p-3 hover:scale-110 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant p-3 hover:scale-110 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+</nav>
+<!-- Background Decoration for Aero Style -->
+
+
+
+
+
+
+
+
+
+
+</body></html>
