@@ -1,0 +1,308 @@
+<!DOCTYPE html><html class="dark" lang="pt-br" style="width: 390px; height: 1822px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ixtopim - Task Details</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#7cdd4c",
+                        "on-primary-container": "#004161",
+                        "primary": "#8bceff",
+                        "surface-container-high": "#252b2f",
+                        "on-secondary-container": "#0e3100",
+                        "surface": "#0f1418",
+                        "on-tertiary": "#492900",
+                        "secondary": "#7cdd4c",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "inverse-on-surface": "#2c3136",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "surface-bright": "#343a3f",
+                        "surface-container-lowest": "#090f13",
+                        "on-tertiary-container": "#5a3400",
+                        "tertiary-fixed": "#ffdcbc",
+                        "on-primary-fixed": "#001e2f",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#97fb66",
+                        "background": "#0f1418",
+                        "surface-dim": "#0f1418",
+                        "primary-container": "#00b2ff",
+                        "tertiary-container": "#ef9206",
+                        "on-background": "#dee3e9",
+                        "surface-tint": "#8bceff",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#47a513",
+                        "primary-fixed": "#c9e6ff",
+                        "outline": "#87929c",
+                        "on-secondary": "#113800",
+                        "on-primary": "#00344e",
+                        "inverse-primary": "#006492",
+                        "on-secondary-fixed": "#072100",
+                        "surface-variant": "#30353a",
+                        "surface-container-low": "#171c21",
+                        "on-secondary-fixed-variant": "#1c5200",
+                        "surface-container-highest": "#30353a",
+                        "tertiary": "#ffb86b",
+                        "on-tertiary-fixed": "#2c1700",
+                        "primary-fixed-dim": "#8bceff",
+                        "outline-variant": "#3e4851",
+                        "on-surface-variant": "#bdc8d2",
+                        "on-error": "#690005",
+                        "inverse-surface": "#dee3e9",
+                        "surface-container": "#1b2025",
+                        "on-surface": "#dee3e9",
+                        "on-primary-fixed-variant": "#004b6f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "container-padding": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "label-sm": ["Quicksand"],
+                        "body-md": ["Quicksand"],
+                        "body-lg": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        .jelly-button {
+            background: linear-gradient(180deg, #8bceff 0%, #00b2ff 100%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 178, 255, 0.4);
+        }
+        .jelly-button::after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 10%;
+            width: 80%;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+        .water-droplet {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2), inset -2px -2px 5px rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .water-droplet.checked {
+            background: radial-gradient(circle at 30% 30%, #97fb66, #47a513);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 10px rgba(71, 165, 19, 0.5);
+        }
+        .progress-tube {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-liquid {
+            height: 100%;
+            background: linear-gradient(90deg, #7cdd4c, #47a513);
+            box-shadow: 0 0 15px rgba(124, 221, 76, 0.6);
+            width: 65%;
+            position: relative;
+        }
+        .bubble-accent {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen relative flex flex-col">
+<div class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-60" data-alt="A deep midnight sky landscape with swirling cosmic nebulas in shades of indigo and violet. Luminous stars and distant galaxies twinkle with a sharp, high-fidelity clarity. The horizon shows a soft blue glow reminiscent of a deep sea abyss, creating a tranquil yet high-tech techno-optimistic atmosphere." style="background-image: linear-gradient(to bottom, rgba(15, 20, 24, 0.8), rgba(15, 20, 24, 0.9)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGYKoEVqUAWd94mm4PL8VxIlfDJehqz1URecLsJSP7_TdZhq6SrmTfqpaD5neNXT4lWCXtuHbKYZ1sO1GV45U0ZEDL-Kh-FzYyvPtFDk5hEJdd6xlL-T42MZrPZt4wk4dks3i04DNiVvDTUBXGuyZzNBT3H3V1VUMzbymiNYXVf7ohTRoM1iXqUfaONYg3y9POivVRpw-GhtOCfWpcLQKBxQi-VxyM2lcI5poV6-JHSmm1j21OYgOu1zGXg1F2HVkRWGjy4cWneCg');">
+</div>
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-gutter h-16 bg-surface/60 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="bubble_chart">bubble_chart</span>
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary tracking-tight">Ixtopim</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant/80 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<div class="w-10 h-10 rounded-full border-2 border-primary/30 overflow-hidden shadow-lg shadow-primary/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a young professional with a friendly smile, lit by a soft, cool blue studio light. The background is a clean, dark gradient that matches the Frutiger Aero aesthetic. High-quality digital photography with a crisp, modern finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBee8lSVN5gNi0H0GE3hmbI60WglyVa-Gm7Y_cnA819KocuqZ7iZbKKfbFh8kOHbNvq-5ooAzg5RIo62fGkekG-gLMXeLhTzAoMM8hDa_0B8gk6lFlZuLVL8_CUXT6ALcEvQZ-XyD7Qh4Nd1CvWM-WcNSJlhDN7hU74RAD-hGrSqbHNQrPh5S9tWGZDgRUatSHqpT3FzmTbyqy8HCLAgky8h_2AufmPByHIzB-n_NaOgqnOu6T_D1XMYcy_moM46BOJpwk68wKFAlg">
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col px-gutter py-8 md:px-margin-desktop max-w-5xl mx-auto w-full pb-32">
+<div class="flex items-center gap-4 mb-8">
+<button class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-primary hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div>
+<span class="text-label-sm font-label-sm text-secondary tracking-widest uppercase mb-1 block">Detalhes da Tarefa</span>
+<h2 class="text-headline-lg font-headline-lg text-on-background">Levar o peixe pra passear</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-8 flex flex-col gap-6">
+<div class="glass-panel p-6 rounded-lg relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+                        Checklist do Passeio
+                    </h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+<div class="water-droplet checked">
+<span class="material-symbols-outlined text-[16px] text-white" data-icon="check" data-weight="fill">check</span>
+</div>
+<span class="flex-grow text-body-lg font-body-lg text-on-surface">Pegar o aquário portátil de vidro duplo</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+<div class="water-droplet checked">
+<span class="material-symbols-outlined text-[16px] text-white" data-icon="check" data-weight="fill">check</span>
+</div>
+<span class="flex-grow text-body-lg font-body-lg text-on-surface">Verificar níveis de oxigênio líquido</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+<div class="water-droplet"></div>
+<span class="flex-grow text-body-lg font-body-lg text-on-surface">Colocar as luzes LED subaquáticas azuis</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+<div class="water-droplet"></div>
+<span class="flex-grow text-body-lg font-body-lg text-on-surface">Escolher o melhor caminho pelo parque</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" data-icon="drag_indicator">drag_indicator</span>
+</div>
+</div>
+<button class="mt-6 w-full py-4 border-2 border-dashed border-white/20 rounded-xl text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Adicionar novo item
+                    </button>
+</div>
+<div class="glass-panel p-6 rounded-lg">
+<h3 class="font-headline-md text-headline-md text-secondary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="notes">notes</span>
+                        Notas Adicionais
+                    </h3>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                        O GlubGlub prefere quando passamos perto das árvores de cerejeira. O reflexo das pétalas na água parece acalmá-lo. Não esquecer de levar o termostato digital para garantir que a temperatura se mantenha em exatos 24.5 graus durante todo o percurso.
+                    </p>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="glass-panel p-6 rounded-lg">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" data-icon="alarm">alarm</span>
+<span class="font-bold text-headline-md">00:15</span>
+</div>
+<span class="text-label-sm px-3 py-1 bg-primary/20 text-primary rounded-full border border-primary/30">Alarme</span>
+</div>
+<div class="mb-6">
+<span class="text-label-sm text-on-surface-variant block mb-2">Repetição</span>
+<div class="flex items-center gap-2 p-3 bg-white/5 border border-white/10 rounded-xl">
+<span class="material-symbols-outlined text-secondary" data-icon="event_repeat">event_repeat</span>
+<span class="font-body-md text-on-surface">Quarta-feira</span>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between text-label-sm mb-2">
+<span class="text-on-surface-variant">Progresso Global</span>
+<span class="text-secondary">65%</span>
+</div>
+<div class="progress-tube">
+<div class="progress-liquid">
+<div class="bubble-accent w-1 h-1 top-1 left-4"></div>
+<div class="bubble-accent w-2 h-2 top-0.5 left-12"></div>
+<div class="bubble-accent w-1 h-1 top-2 left-24"></div>
+</div>
+</div>
+</div>
+<button class="jelly-button w-full py-4 rounded-xl text-on-primary-container font-bold text-lg hover:scale-[1.02] active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+                        Começar Agora
+                    </button>
+</div>
+<div class="glass-panel p-6 rounded-lg">
+<h4 class="font-headline-md text-headline-md text-tertiary mb-4">Galeria</h4>
+<div class="grid grid-cols-2 gap-3">
+<img class="w-full h-24 object-cover rounded-lg border border-white/20" data-alt="A macro photograph of a vibrant tropical fish swimming in crystal clear water. The lighting creates shimmering highlights on its iridescent scales. The background is a soft, deep-sea blue with floating light particles, echoing the techno-optimistic Frutiger Aero style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqyeka8wxcVWtJ1j8-O6n7-XPvFWpiuCYTYy4J2rAGEE9Q1NVRGQNKc8431O1uDjD1BlGCsPNtRK4noaTtOPCDYvub4iY4C27twkns6T2FnV0mLI10o0CexOgQcphgBpzjo5gWrReSy7U3_djrhw1RxhUtBV3hgptiTTx_lAYHSqc5Ob6YP2fMcuTLrxEAAh5nYH2LrqAFlhwbj_qtVqxqxzMMxG53Ahq073j3Ivp8JeId0sN65O95V-vdeO9N2VX3uRKrWscP_BE">
+<div class="w-full h-24 bg-white/5 border-2 border-dashed border-white/10 rounded-lg flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="add_a_photo">add_a_photo</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 flex justify-around items-center px-4 py-2 z-50 bg-surface-container/40 backdrop-blur-2xl w-[90%] max-w-md rounded-full border border-white/30 shadow-lg shadow-primary-container/20">
+<a class="flex items-center justify-center text-on-surface-variant p-3 hover:scale-110 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</a>
+<a class="flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full p-3 shadow-[inset_0_1px_2px_rgba(255,255,255,0.4)] scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant p-3 hover:scale-110 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</a>
+<a class="flex items-center justify-center text-on-surface-variant p-3 hover:scale-110 hover:text-secondary transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</a>
+</nav>
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-20">
+<div class="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-primary/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[10%] right-[5%] w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[150px]"></div>
+</div>
+<div id="snapdom-sandbox" data-snapdom-sandbox="true" aria-hidden="true" style="position: absolute; left: -9999px; top: -9999px; width: 0px; height: 0px; overflow: hidden;"></div>
+</body></html>
